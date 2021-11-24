@@ -30,11 +30,11 @@ public class EndingBehavior : MonoBehaviour
         {
             if (gameManager.souls > gameManager.maxSoulsToWin)
             {
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene(2);
                 
             } else
             {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(3);
             }
         }
     }

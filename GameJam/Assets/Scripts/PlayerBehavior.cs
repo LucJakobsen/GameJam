@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBehavior : MonoBehaviour
+public class PlayerBehavior: MonoBehaviour
 {
-    Rigidbody rb;
-
     GameBehavior gameManager;
+    Rigidbody rb;
+    
+    public Animator animator;
+
+
     bool isGrounded = false;
 
-    float moveSpeed = 5.0f;
+    float moveSpeed = 3f;
 
     float jumpHeight = 0.0f;
     float dashForce;
@@ -19,37 +22,31 @@ public class PlayerBehavior : MonoBehaviour
 
     public bool canCollect;
 
+    bool facingRight;
+
     RaycastHit Hit;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
+
     }
 
     private void Update()
     {
         CheckGrounded();
- 
+
         Move();
         Jump();
-        FaceForward();
-        Debug.Log(canCollect);
-      PickUp();
-    }
-    void FaceForward()
-    {
-        Vector3 vel = rb.velocity;
-        if (vel.x != 0)
-        {
-            transform.forward = new Vector3(vel.x, 0, 0);
-        }
+        PickUp();
+
     }
 
     void CheckGrounded()
     {
         Ray ray = new Ray(transform.position, Vector2.down);
-        if (Physics.Raycast(ray, 01f))
+        if (Physics.Raycast(ray, 1.5f))
         {
             isGrounded = true;
         }
@@ -58,11 +55,26 @@ public class PlayerBehavior : MonoBehaviour
 
     void Move()
     {
-        if(isJumping == false && !Input.GetKey(KeyCode.Space))
+        if (isJumping == false && !Input.GetKey(KeyCode.Space))
         {
             float hInput = Input.GetAxis("Horizontal") * moveSpeed;
             rb.velocity = new Vector2(hInput, rb.velocity.y);
+
+            animator.SetFloat("IsRunning", Mathf.Abs(hInput));
+
+            if (hInput < 0)
+            {
+                var scale = transform.localScale;
+                scale.x = -3f;
+                transform.localScale = scale;
+            } else if (hInput > 0)
+            {
+                var scale = transform.localScale;
+                scale.x = 3f;
+                transform.localScale = scale;
+            }
         }
+        
     }
 
     void Jump()
@@ -70,50 +82,44 @@ public class PlayerBehavior : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
-            if (jumpHeight <= 7) {
-                jumpHeight+= 0.1f;
+            if (jumpHeight <= 7)
+            {
+                jumpHeight += 0.1f;
             }
+           
+           animator.SetBool("IsJumping", true);
         }
 
         if (isGrounded && Input.GetKeyUp(KeyCode.Space))
         {
             isJumping = true;
             rb.AddForce(Vector2.up * jumpHeight, ForceMode.Impulse);
-            Invoke("ResetJump", 1.6f);
+            Invoke("ResetJump", 1.4f);
             jumpHeight = 0.0f;
+
+
         }
-    
-        
+
+
+    }
+
+    public void OnLanding ()
+    {
+        animator.SetBool("IsJumping", false);
     }
 
     private void ResetJump()
     {
         isJumping = false;
+        OnLanding();
     }
 
     void PickUp()
     {
-        if(canCollect && Input.GetKeyDown(KeyCode.E))
-            {
+        if (canCollect && Input.GetKeyDown(KeyCode.E))  
+        {
             gameManager.souls += 1;
-                Destroy(soul);
-            }
+            Destroy(soul);
+        }
     }
-
-    /* void PickUp()
-     {
-         float distanceToSoul = 3f;
-         float height = 1f;
-         if (Physics.SphereCast(rb.position, height, transform.forward, out Hit, distanceToSoul))
-         {
-             if (Hit.transform.gameObject.CompareTag("Soul"))
-             {
-                 if (Input.GetKeyDown(KeyCode.E))
-                 {
-                     soulsCollected += 1;
-                     Destroy(Hit.transform.gameObject);
-                 }
-             }
-         }
-     }*/
 }
