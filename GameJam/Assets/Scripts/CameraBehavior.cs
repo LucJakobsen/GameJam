@@ -7,14 +7,8 @@ public class CameraBehavior : MonoBehaviour
     [SerializeField]
     private PlayerBehavior _pb;
 
-    private Vector3 offSet;
-
-    
-    //private float sceneSwap = 5f;
-
     private float sceneOne = 0f;
     private float sceneOneSwap = 4.9f;
-    
 
     private float sceneTwo = 10f;
     private float sceneTwoBottom = 5f;
@@ -46,51 +40,30 @@ public class CameraBehavior : MonoBehaviour
 
         if (_pb.transform.position.y <= sceneOneSwap)
         {
-            SceneOne();
+            SceneSwap(new Vector3(transform.position.x, sceneOne, transform.position.z));
         }
         else if (_pb.transform.position.y >= sceneTwoBottom && _pb.transform.position.y <= sceneTwoTop)
         {
-            SceneTwo();
+            SceneSwap(new Vector3(transform.position.x, sceneTwo, transform.position.z));
         }
         else if (_pb.transform.position.y >= sceneThreeBottom && _pb.transform.position.y <= sceneThreeTop)
         {
-            SceneThree();
+            SceneSwap(new Vector3(transform.position.x, sceneThree, transform.position.z));
         }
         else if (_pb.transform.position.y >= sceneFourBottom && _pb.transform.position.y <= sceneFourTop)
         {
-            SceneFour();
+            SceneSwap(new Vector3(transform.position.x, sceneFour, transform.position.z));
         }
         else if (_pb.transform.position.y >= sceneFiveBottom)
         {     
-            SceneFive();
+            SceneSwap(new Vector3(transform.position.x, sceneFive, transform.position.z));
         }
     }
 
 
     // Every method below transform the cameras position on Y axis only, to match the given scene.
-    private void SceneOne()
+    private void SceneSwap(Vector3 vector3)
     {
-        this.transform.position = new Vector3(transform.position.x, sceneOne, transform.position.z);
+        this.transform.position = vector3;
     }
-
-    private void SceneTwo()
-    {        
-        this.transform.position = new Vector3(transform.position.x, sceneTwo, transform.position.z);
-    }
-
-    private void SceneThree()
-    {
-        this.transform.position = new Vector3(transform.position.x, sceneThree, transform.position.z);
-    }
-
-    private void SceneFour()
-    {
-        this.transform.position = new Vector3(transform.position.x, sceneFour, transform.position.z);
-    }
-
-    private void SceneFive()
-    {
-        this.transform.position = new Vector3(transform.position.x, sceneFive, transform.position.z);
-    }
-
 }
