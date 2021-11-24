@@ -30,35 +30,11 @@ public class EndingBehavior : MonoBehaviour
         {
             if (gameManager.souls > gameManager.maxSoulsToWin)
             {
-                showLossScreen = true;
-                Debug.Log("You gathered too many souls to win");
+                SceneManager.LoadScene(3);
+                
             } else
             {
-                showWinScreen = true;
-                Debug.Log("You Won!");
-            }
-        }
-    }
-
-    private void OnGUI()
-    {
-        if (showLossScreen == true)
-        {
-            if (GUI.Button(new Rect(Screen.width / 2 - 100,
-                   Screen.height / 2 - 50, 200, 100),
-                   "You must restart to win!"))
-            {
-                SceneManager.LoadScene(sceneIndex);
-            }
-        }
-
-        if (showWinScreen == true)
-        {
-            if (GUI.Button(new Rect(Screen.width / 2 - 100,
-                   Screen.height / 2 - 50, 200, 100),
-                   "You win!"))
-            {
-                SceneManager.LoadScene(sceneIndex);
+                SceneManager.LoadScene(2);
             }
         }
     }

@@ -6,9 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Hollow_Jumper_Start_Menu_-_UI.unity
+    guid: ea9fb776bd72840e6b39af4512620505
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: f9d8a17f0008c4e6a9615de48c9fdf30
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/BadEnd.unity
+    guid: d47f328e76d8d43bd80b10a7dddfbfa9
   m_configObjects: {}
