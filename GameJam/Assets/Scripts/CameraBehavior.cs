@@ -18,11 +18,11 @@ public class CameraBehavior : MonoBehaviour
     private float sceneThreeBottom = 30f;
     private float sceneThreeTop = 50f;
 
-    private float sceneFour = 61f;
+    private float sceneFour = 62f;
     private float sceneFourBottom = 50f;
     private float sceneFourTop = 70f;
 
-    private float sceneFive = 81f;
+    private float sceneFive = 82f;
     private float sceneFiveBottom = 70f;
 
     

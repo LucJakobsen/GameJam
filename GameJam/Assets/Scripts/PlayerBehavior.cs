@@ -16,6 +16,8 @@ public class PlayerBehavior: MonoBehaviour
 
     float jumpHeight = 0.0f;
 
+    int playerWidth = 6;
+    float playerHeight = 1.4f;
     
 
     public GameObject soul;
@@ -33,6 +35,7 @@ public class PlayerBehavior: MonoBehaviour
     private void Update()
     {
         CheckGrounded();
+        Debug.Log(isGrounded);
         Move();
         Jump();
         PickUpSouls();
@@ -44,9 +47,12 @@ public class PlayerBehavior: MonoBehaviour
     ///<summary>
     void CheckGrounded()
     {
-        Ray ray = new Ray(transform.position, Vector2.down);
-       // Ray ray 
-        if (Physics.Raycast(ray, 1.5f))
+        bool backedgeOnGround =Physics.Raycast(new Vector3((transform.position.x - transform.localScale.x / 6), transform.position.y, transform.position.z),
+          (-transform.up), playerHeight );
+        bool frontedgeOnGround = Physics.Raycast(new Vector3((transform.position.x + transform.localScale.x / 6), transform.position.y, transform.position.z),
+          (-transform.up), playerHeight);
+        bool centerOnGround = Physics.Raycast (transform.position, (-transform.up), playerHeight);
+        if (backedgeOnGround || frontedgeOnGround || centerOnGround)
         {
             isGrounded = true;
         }
@@ -59,7 +65,7 @@ public class PlayerBehavior: MonoBehaviour
     void Move()
     {
         // Will only move if not jumping
-        if (isJumping == false && !Input.GetKey(KeyCode.Space))
+        if (isGrounded && !Input.GetKey(KeyCode.Space))
         {
             float hInput = Input.GetAxis("Horizontal") * moveSpeed;
             rb.velocity = new Vector2(hInput, rb.velocity.y);
@@ -95,32 +101,23 @@ public class PlayerBehavior: MonoBehaviour
                 jumpHeight += 0.15f;
             }
            
-           animator.SetBool("IsJumping", true);
         }
         if (isGrounded && Input.GetKeyUp(KeyCode.Space))
         {
             isJumping = true;
             rb.AddForce(Vector2.up * jumpHeight, ForceMode.Impulse);
-            //Calls ResetJump after 1.6 seconds
-            Invoke("ResetJump", 1.6f);
+            
             jumpHeight = 0.0f;
+        } if (isGrounded == false)
+        {
+            animator.SetBool("IsJumping", true);
+        } else if (isGrounded)
+        {
+            animator.SetBool("IsJumping", false);
         }
     }
 
-    /// <summary>
-	/// Stops the jumoing animation and sets jumoing to false
-	/// </summary>
-    public void OnLanding ()
-    {
-        animator.SetBool("IsJumping", false);
-    }
-
-    private void ResetJump()
-    {
-        isJumping = false;
-        OnLanding();
-    }
-
+ 
       /// <summary>
 	/// Method to pickup Souls
 	/// </summary>
@@ -132,4 +129,14 @@ public class PlayerBehavior: MonoBehaviour
             Destroy(soul);
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(new Vector3((transform.position.x - transform.localScale.x/ playerWidth), transform.position.y, transform.position.z),
+           new Vector3((transform.position.x - transform.localScale.x / playerWidth), transform.position.y, transform.position.z) + (-transform.up));
+
+        Gizmos.DrawLine(new Vector3((transform.position.x + transform.localScale.x / playerWidth), transform.position.y, transform.position.z),
+           new Vector3((transform.position.x + transform.localScale.x / playerWidth), transform.position.y, transform.position.z) + (-transform.up));
+    }
+
 }
