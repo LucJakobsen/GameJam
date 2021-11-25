@@ -43,6 +43,6 @@ public class GameBehavior : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.Box(new Rect(20, 20, 150, 25), "Souls: " + _soulsCollected);
+        GUI.Box(new Rect(20, 20, 300, 100), "Souls: " + _soulsCollected);
     }
 }

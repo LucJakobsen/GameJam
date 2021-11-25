@@ -10575,11 +10575,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92e91d391d6f49ceae45924a75d42dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 72b52f80c641c4c4db98413ec0da754c, type: 2}
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: GameMusic
+    clip: {fileID: 8300000, guid: 1ad39fa1b121a4d9d9af682e6f939963, type: 3}
+    audioMikser: {fileID: -2709707963010133628, guid: 72b52f80c641c4c4db98413ec0da754c, type: 2}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: SoulSound
+    clip: {fileID: 8300000, guid: d38550b2b88624b46839d9123e9aa4a5, type: 3}
+    audioMikser: {fileID: -3581923891565587077, guid: 72b52f80c641c4c4db98413ec0da754c, type: 2}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: e337b9dadfb17444792eadf9e3ecace6, type: 3}
+    audioMikser: {fileID: -3581923891565587077, guid: 72b52f80c641c4c4db98413ec0da754c, type: 2}
+    volume: 0.3
+    pitch: 1
     source: {fileID: 0}
 --- !u!4 &2048256967
 Transform:

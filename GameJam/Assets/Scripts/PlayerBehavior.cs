@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerBehavior: MonoBehaviour
 {
@@ -29,7 +30,8 @@ public class PlayerBehavior: MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
-
+        FindObjectOfType<AudioManager>().Play("GameMusic");
+        FindObjectOfType<AudioManager>().Play("Explosion");
     }
 
     private void Update()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoulBehavior : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class SoulBehavior : MonoBehaviour
             Debug.Log("Hit");
             player.canCollect = true;
             player.soul = this.gameObject;
+            FindObjectOfType<AudioManager>().Play("SoulSound");
         }
     }
 

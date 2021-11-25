@@ -10,19 +10,19 @@ public class Ending : MonoBehaviour
     private void OnGUI()
     {
         if(sceneIndex == 2){
-            if (GUI.Button(new Rect(Screen.width / 2 - 100,
-                   Screen.height / 2 - 100, 200, 100),
-                   "You must restart to win lol!"))
+            if (GUI.Button(new Rect(Screen.width / 2 + 50,
+                   Screen.height / 2 + 75, 200, 50),
+                   "Click to try again!"))
             {
                 SceneManager.LoadScene(0);
             } 
         } else if (sceneIndex == 3){
-            if (GUI.Button(new Rect(Screen.width / 2 - 100,
-                   Screen.height / 2 - 100, 200, 100),
-                   "You Have a soul!!"))
+            if (GUI.Button(new Rect(Screen.width / 2 + 50,
+                   Screen.height / 2 + 75, 200, 50),
+                   "You Won! Click to play again"))
             {
                 SceneManager.LoadScene(0);
-            }     
+            } 
         }
     }
 }
