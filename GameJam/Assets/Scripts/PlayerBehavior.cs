@@ -9,22 +9,19 @@ public class PlayerBehavior: MonoBehaviour
     
     public Animator animator;
 
-
+    bool isJumping;
     bool isGrounded = false;
 
-    float moveSpeed = 3f;
+    float moveSpeed = 4f;
 
     float jumpHeight = 0.0f;
-    float dashForce;
-    bool isJumping;
+
+    
 
     public GameObject soul;
 
     public bool canCollect;
 
-    bool facingRight;
-
-    RaycastHit Hit;
 
     private void Start()
     {
@@ -36,16 +33,19 @@ public class PlayerBehavior: MonoBehaviour
     private void Update()
     {
         CheckGrounded();
-
         Move();
         Jump();
-        PickUp();
+        PickUpSouls();
 
     }
 
+     /// <summary>
+	/// Sets isGrounded to true or false depending if it hits the ground or not
+    ///<summary>
     void CheckGrounded()
     {
         Ray ray = new Ray(transform.position, Vector2.down);
+       // Ray ray 
         if (Physics.Raycast(ray, 1.5f))
         {
             isGrounded = true;
@@ -53,8 +53,12 @@ public class PlayerBehavior: MonoBehaviour
         else isGrounded = false;
     }
 
+    /// <summary>
+	/// Moves the player in a given position depending on the way being pressed
+	/// </summary>
     void Move()
     {
+        // Will only move if not jumping
         if (isJumping == false && !Input.GetKey(KeyCode.Space))
         {
             float hInput = Input.GetAxis("Horizontal") * moveSpeed;
@@ -62,47 +66,50 @@ public class PlayerBehavior: MonoBehaviour
 
             animator.SetFloat("IsRunning", Mathf.Abs(hInput));
 
+            //Changes the scale to turn depending on which way you are moving (The scale of our guy can now only be 3)
             if (hInput < 0)
             {
                 var scale = transform.localScale;
-                scale.x = -3f;
+                scale.x = -6f;
                 transform.localScale = scale;
             } else if (hInput > 0)
             {
                 var scale = transform.localScale;
-                scale.x = 3f;
+                scale.x = 6f;
                 transform.localScale = scale;
             }
         }
         
     }
 
+    /// <summary>
+	/// Method to jump when standing  on the ground
+	/// </summary>
     void Jump()
     {
 
         if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
-            if (jumpHeight <= 7)
+            if (jumpHeight <= 9.5)
             {
-                jumpHeight += 0.1f;
+                jumpHeight += 0.15f;
             }
            
            animator.SetBool("IsJumping", true);
         }
-
         if (isGrounded && Input.GetKeyUp(KeyCode.Space))
         {
             isJumping = true;
             rb.AddForce(Vector2.up * jumpHeight, ForceMode.Impulse);
-            Invoke("ResetJump", 1.4f);
+            //Calls ResetJump after 1.6 seconds
+            Invoke("ResetJump", 1.6f);
             jumpHeight = 0.0f;
-
-
         }
-
-
     }
 
+    /// <summary>
+	/// Stops the jumoing animation and sets jumoing to false
+	/// </summary>
     public void OnLanding ()
     {
         animator.SetBool("IsJumping", false);
@@ -114,7 +121,10 @@ public class PlayerBehavior: MonoBehaviour
         OnLanding();
     }
 
-    void PickUp()
+      /// <summary>
+	/// Method to pickup Souls
+	/// </summary>
+    void PickUpSouls()
     {
         if (canCollect && Input.GetKeyDown(KeyCode.E))  
         {

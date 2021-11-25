@@ -8,22 +8,22 @@ public class CameraBehavior : MonoBehaviour
     private PlayerBehavior _pb;
 
     private float sceneOne = 0f;
-    private float sceneOneSwap = 4.9f;
+    private float sceneOneSwap = 10f;
 
-    private float sceneTwo = 10f;
-    private float sceneTwoBottom = 5f;
-    private float sceneTwoTop = 14.9f;
+    private float sceneTwo = 21f;
+    private float sceneTwoBottom = 10f;
+    private float sceneTwoTop = 30f;
 
-    private float sceneThree = 20f;
-    private float sceneThreeBottom = 15f;
-    private float sceneThreeTop = 24.9f;
+    private float sceneThree = 41f;
+    private float sceneThreeBottom = 30f;
+    private float sceneThreeTop = 50f;
 
-    private float sceneFour = 30f;
-    private float sceneFourBottom = 25f;
-    private float sceneFourTop = 34.9f;
+    private float sceneFour = 61f;
+    private float sceneFourBottom = 50f;
+    private float sceneFourTop = 70f;
 
-    private float sceneFive = 40f;
-    private float sceneFiveBottom = 35f;
+    private float sceneFive = 81f;
+    private float sceneFiveBottom = 70f;
 
     
     
