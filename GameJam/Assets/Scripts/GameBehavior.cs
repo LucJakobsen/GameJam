@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameBehavior : MonoBehaviour
 {
-
+    public TextMeshProUGUI soulCounter;
     SoulBehavior Soul;
     int _soulsCollected;
     List<GameObject> soulList = new List<GameObject>();
@@ -31,6 +32,8 @@ public class GameBehavior : MonoBehaviour
 
         _maxSoulsToWin = (soulList.Count/ 2);
         Debug.Log(_maxSoulsToWin);
+
+        SetSoulsCollected(_soulsCollected);
     }
     // Update is called once per frame
     void Update()
@@ -41,8 +44,8 @@ public class GameBehavior : MonoBehaviour
         }
     }
 
-    private void OnGUI()
-    {
-        GUI.Box(new Rect(20, 20, 300, 100), "Souls: " + _soulsCollected);
+    public void SetSoulsCollected(int souls){
+        soulCounter.SetText("Souls: " + _soulsCollected.ToString());
     }
+
 }

@@ -41,6 +41,7 @@ public class PlayerBehavior: MonoBehaviour
         Move();
         Jump();
         PickUpSouls();
+        
 
     }
 
@@ -128,6 +129,7 @@ public class PlayerBehavior: MonoBehaviour
         if (canCollect && Input.GetKeyDown(KeyCode.E))  
         {
             gameManager.souls += 1;
+            gameManager.SetSoulsCollected(gameManager.souls);
             Destroy(soul);
         }
     }

@@ -39,10 +39,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -86,27 +84,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1552}
+      Script: {instanceID: 1866}
     - Class: 114
-      Script: {instanceID: 1868}
+      Script: {instanceID: 2344}
     - Class: 114
-      Script: {instanceID: 2280}
+      Script: {instanceID: 2458}
     - Class: 114
-      Script: {instanceID: 2346}
+      Script: {instanceID: 2712}
     - Class: 114
-      Script: {instanceID: 2460}
+      Script: {instanceID: 2934}
     - Class: 114
-      Script: {instanceID: 2714}
+      Script: {instanceID: 3116}
     - Class: 114
-      Script: {instanceID: 2936}
+      Script: {instanceID: 3812}
     - Class: 114
-      Script: {instanceID: 3118}
-    - Class: 114
-      Script: {instanceID: 3488}
-    - Class: 114
-      Script: {instanceID: 3814}
-    - Class: 114
-      Script: {instanceID: 5034}
+      Script: {instanceID: 5032}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -159,27 +151,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1552}
+      Script: {instanceID: 1866}
     - Class: 114
-      Script: {instanceID: 1868}
+      Script: {instanceID: 2344}
     - Class: 114
-      Script: {instanceID: 2280}
+      Script: {instanceID: 2458}
     - Class: 114
-      Script: {instanceID: 2346}
+      Script: {instanceID: 2712}
     - Class: 114
-      Script: {instanceID: 2460}
+      Script: {instanceID: 2934}
     - Class: 114
-      Script: {instanceID: 2714}
+      Script: {instanceID: 3116}
     - Class: 114
-      Script: {instanceID: 2936}
+      Script: {instanceID: 3812}
     - Class: 114
-      Script: {instanceID: 3118}
-    - Class: 114
-      Script: {instanceID: 3488}
-    - Class: 114
-      Script: {instanceID: 3814}
-    - Class: 114
-      Script: {instanceID: 5034}
+      Script: {instanceID: 5032}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -228,35 +214,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1552}
     - Class: 114
-      Script: {instanceID: 1868}
+      Script: {instanceID: 1866}
     - Class: 114
-      Script: {instanceID: 2272}
+      Script: {instanceID: 2270}
     - Class: 114
-      Script: {instanceID: 2714}
+      Script: {instanceID: 2712}
     - Class: 114
-      Script: {instanceID: 2886}
+      Script: {instanceID: 2884}
     - Class: 114
-      Script: {instanceID: 2936}
+      Script: {instanceID: 2934}
     - Class: 114
-      Script: {instanceID: 3118}
+      Script: {instanceID: 3116}
     - Class: 114
-      Script: {instanceID: 3370}
+      Script: {instanceID: 3368}
     - Class: 114
-      Script: {instanceID: 3488}
+      Script: {instanceID: 3486}
     - Class: 114
-      Script: {instanceID: 3954}
+      Script: {instanceID: 3952}
     - Class: 114
-      Script: {instanceID: 4724}
+      Script: {instanceID: 4722}
     - Class: 114
-      Script: {instanceID: 4886}
+      Script: {instanceID: 4884}
     - Class: 114
-      Script: {instanceID: 5286}
+      Script: {instanceID: 5284}
     - Class: 114
-      Script: {instanceID: 30920}
+      Script: {instanceID: 17246}
     - Class: 114
-      Script: {instanceID: 30922}
+      Script: {instanceID: 17248}
     - Class: 114
-      Script: {instanceID: 30924}
+      Script: {instanceID: 17250}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -317,39 +303,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1770}
     - Class: 114
-      Script: {instanceID: 1868}
+      Script: {instanceID: 1866}
     - Class: 114
-      Script: {instanceID: 2280}
+      Script: {instanceID: 2278}
     - Class: 114
-      Script: {instanceID: 2322}
+      Script: {instanceID: 2320}
     - Class: 114
-      Script: {instanceID: 2460}
+      Script: {instanceID: 2458}
     - Class: 114
-      Script: {instanceID: 2714}
+      Script: {instanceID: 2712}
     - Class: 114
-      Script: {instanceID: 2886}
+      Script: {instanceID: 2884}
     - Class: 114
-      Script: {instanceID: 2936}
+      Script: {instanceID: 2934}
     - Class: 114
-      Script: {instanceID: 3118}
+      Script: {instanceID: 3116}
     - Class: 114
-      Script: {instanceID: 3132}
+      Script: {instanceID: 3130}
     - Class: 114
-      Script: {instanceID: 3240}
+      Script: {instanceID: 3238}
     - Class: 114
-      Script: {instanceID: 3370}
+      Script: {instanceID: 3368}
     - Class: 114
-      Script: {instanceID: 3484}
+      Script: {instanceID: 3482}
     - Class: 114
-      Script: {instanceID: 3488}
+      Script: {instanceID: 3486}
     - Class: 114
-      Script: {instanceID: 3814}
+      Script: {instanceID: 3812}
     - Class: 114
-      Script: {instanceID: 4500}
+      Script: {instanceID: 4498}
     - Class: 114
-      Script: {instanceID: 5034}
+      Script: {instanceID: 5032}
     - Class: 114
-      Script: {instanceID: 17634}
+      Script: {instanceID: 30734}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -587,7 +573,7 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: ab2bf977990dc4483aebf1cddb21177a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameBehavior
@@ -623,7 +609,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 1a9e222dd19e3a2ee9f37330ef1e7594
+      Hash: d3f381dd1b92d675e7f3bc6f8c8e7f78
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AudioManager
@@ -975,4 +961,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/SampleScene.unity
   - Assets/Scenes/BadEnd.unity
   - Assets/Scenes/GoodEnd.unity
-  playerPath: /Users/lucasjakobsen/Documents/GitHub/GameJam/GameJam/Hollow Jumper.app
+  playerPath: /Users/lucasjakobsen/Desktop/GAMEJAM/Hollow Jumper.app
